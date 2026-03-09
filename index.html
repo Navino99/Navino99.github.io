@@ -1,10 +1,1622 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GRC Analyst Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naveen Jeevanantham — GRC Analyst & ISO 27001 Lead Implementer</title>
+<meta name="description" content="GRC Analyst specialising in ISO 27001, HIPAA, GDPR, Risk Management, and Compliance. Hands-on experience in healthcare SaaS security.">
+<meta property="og:title" content="Naveen Jeevanantham — GRC Portfolio">
+<meta property="og:description" content="GRC Analyst | ISO 27001 Lead Implementer | Cloud Security | Risk & Compliance">
+<meta property="og:url" content="https://naveenjeevanantham.github.io">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET ──────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+/* ─── TOKENS ─────────────────────────────────── */
+:root {
+  --navy:    #0D1B2A;
+  --deep:    #091522;
+  --steel:   #1A4F7A;
+  --teal:    #0E8A8A;
+  --gold:    #C9963A;
+  --ice:     #E8F4F8;
+  --smoke:   #F2F6F9;
+  --mid:     #8A9BB0;
+  --white:   #FAFCFE;
+  --text:    #1A2A3A;
+  --muted:   #5A6B7C;
+  --border:  rgba(26,79,122,0.15);
+  --glow:    rgba(14,138,138,0.25);
+  --card-bg: rgba(255,255,255,0.72);
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+  --r-sm: 8px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --shadow: 0 4px 24px rgba(13,27,42,0.10), 0 1px 4px rgba(13,27,42,0.06);
+  --shadow-lg: 0 12px 48px rgba(13,27,42,0.16), 0 2px 8px rgba(13,27,42,0.08);
+}
+
+/* ─── BASE ───────────────────────────────────── */
+body {
+  font-family: var(--font-body);
+  background: var(--deep);
+  color: var(--white);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ─── NOISE TEXTURE OVERLAY ──────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ─── CURSOR ─────────────────────────────────── */
+.cursor {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--teal);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+  transition: transform 0.15s ease, opacity 0.2s;
+}
+.cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(14,138,138,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.2s ease;
+}
+
+/* ─── NAV ────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 5%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(9,21,34,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(14,138,138,0.15);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--teal); }
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--mid);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--teal); }
+.nav-cta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 8px 20px;
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  background: transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--teal); color: var(--deep); }
+
+/* ─── HERO ───────────────────────────────────── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 5% 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(14,138,138,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14,138,138,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+.hero-glow {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(ellipse, rgba(14,138,138,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(201,150,58,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--teal);
+  letter-spacing: 0.12em;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-label::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--teal);
+}
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.6rem;
+}
+h1 .accent { color: var(--teal); }
+h1 .name-sub {
+  display: block;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  color: var(--mid);
+  letter-spacing: 0.01em;
+  margin-top: 0.5rem;
+  font-family: var(--font-body);
+}
+.hero-desc {
+  color: rgba(250,252,254,0.65);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin: 1.6rem 0 2.4rem;
+  max-width: 480px;
+}
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 14px 32px;
+  background: var(--teal);
+  color: var(--deep);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.25s;
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover {
+  background: #0FAAAA;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(14,138,138,0.35);
+}
+.btn-secondary {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  padding: 14px 28px;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--white);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.25s;
+  letter-spacing: 0.04em;
+}
+.btn-secondary:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: translateY(-2px);
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.stat-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(14,138,138,0.2);
+  border-radius: var(--r-md);
+  padding: 1.2rem 1.4rem;
+  transition: all 0.3s;
+  cursor: default;
+}
+.stat-card:hover {
+  border-color: var(--teal);
+  background: rgba(14,138,138,0.06);
+  transform: translateY(-2px);
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--teal);
+  letter-spacing: -0.03em;
+}
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--mid);
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+/* ─── HERO RIGHT — TERMINAL CARD ─────────────── */
+.hero-terminal {
+  background: rgba(13,27,42,0.8);
+  border: 1px solid rgba(14,138,138,0.25);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.terminal-header {
+  background: rgba(255,255,255,0.04);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(14,138,138,0.15);
+}
+.t-dot { width: 12px; height: 12px; border-radius: 50%; }
+.t-dot.red   { background: #FF5F56; }
+.t-dot.amber { background: #FFBD2E; }
+.t-dot.green { background: #27C93F; }
+.t-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--mid);
+  margin-left: 8px;
+  letter-spacing: 0.06em;
+}
+.terminal-body {
+  padding: 1.8rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 2;
+}
+.t-line { display: flex; align-items: flex-start; gap: 12px; }
+.t-prompt { color: var(--teal); flex-shrink: 0; }
+.t-cmd { color: rgba(250,252,254,0.85); }
+.t-val { color: var(--gold); }
+.t-comment { color: rgba(138,155,176,0.6); font-size: 0.75rem; }
+.t-section {
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(14,138,138,0.12);
+}
+.t-key { color: var(--mid); }
+.t-string { color: #A8D8A8; }
+.t-cursor {
+  display: inline-block;
+  width: 8px; height: 15px;
+  background: var(--teal);
+  vertical-align: middle;
+  animation: blink 1.2s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ─── SECTION COMMON ─────────────────────────── */
+section { padding: 100px 5%; position: relative; z-index: 1; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--teal);
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::before { content: '//'; }
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+h2 span { color: var(--teal); }
+.section-sub {
+  color: var(--mid);
+  font-size: 1rem;
+  max-width: 540px;
+  margin-bottom: 3.5rem;
+}
+
+/* ─── ABOUT ──────────────────────────────────── */
+#about { background: rgba(255,255,255,0.015); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.about-text p {
+  color: rgba(250,252,254,0.7);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+.about-text p strong { color: var(--teal); font-weight: 500; }
+.about-highlight {
+  margin: 2rem 0;
+  padding: 1.4rem 1.8rem;
+  background: rgba(14,138,138,0.06);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.about-highlight p {
+  color: rgba(250,252,254,0.8);
+  font-size: 0.95rem;
+  margin: 0;
+  font-style: italic;
+}
+.about-right { display: flex; flex-direction: column; gap: 1rem; }
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 1rem 1.2rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  transition: border-color 0.2s;
+}
+.info-row:hover { border-color: rgba(14,138,138,0.3); }
+.info-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.info-content label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--mid);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 3px;
+}
+.info-content span {
+  font-size: 0.9rem;
+  color: rgba(250,252,254,0.85);
+}
+.info-content a {
+  color: var(--teal);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.info-content a:hover { text-decoration: underline; }
+
+/* ─── EXPERTISE ──────────────────────────────── */
+#expertise { }
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+.expertise-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 2rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.expertise-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--teal), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.expertise-card:hover {
+  border-color: rgba(14,138,138,0.35);
+  background: rgba(14,138,138,0.04);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.expertise-card:hover::before { opacity: 1; }
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  display: block;
+}
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.01em;
+}
+.card-desc {
+  font-size: 0.88rem;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 1.4rem;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 4px 10px;
+  background: rgba(14,138,138,0.1);
+  border: 1px solid rgba(14,138,138,0.2);
+  border-radius: 4px;
+  color: var(--teal);
+  letter-spacing: 0.04em;
+}
+
+/* ─── EXPERIENCE ─────────────────────────────── */
+#experience { background: rgba(255,255,255,0.015); }
+.exp-timeline {
+  position: relative;
+  padding-left: 32px;
+}
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--teal), rgba(14,138,138,0.1));
+}
+.exp-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding: 1.8rem 2rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: all 0.3s;
+}
+.exp-item:hover {
+  border-color: rgba(14,138,138,0.3);
+  background: rgba(14,138,138,0.03);
+}
+.exp-item::before {
+  content: '';
+  position: absolute;
+  left: -37px;
+  top: 24px;
+  width: 10px; height: 10px;
+  background: var(--teal);
+  border-radius: 50%;
+  border: 2px solid var(--deep);
+  box-shadow: 0 0 0 4px rgba(14,138,138,0.2);
+}
+.exp-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.exp-role {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+.exp-company {
+  color: var(--teal);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.exp-period {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--mid);
+  padding: 5px 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.exp-highlights {
+  list-style: none;
+  margin-top: 1rem;
+}
+.exp-highlights li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  color: rgba(250,252,254,0.7);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+.exp-highlights li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-size: 0.75rem;
+  top: 3px;
+}
+
+/* ─── CERTIFICATIONS ─────────────────────────── */
+#certifications {}
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.2rem;
+}
+.cert-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1.4rem 1.6rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: all 0.3s;
+}
+.cert-card:hover {
+  border-color: rgba(14,138,138,0.35);
+  background: rgba(14,138,138,0.04);
+  transform: translateY(-2px);
+}
+.cert-badge {
+  width: 48px; height: 48px;
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  background: rgba(14,138,138,0.1);
+  border: 1px solid rgba(14,138,138,0.2);
+}
+.cert-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.cert-issuer {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--teal);
+  letter-spacing: 0.06em;
+}
+
+/* ─── FRAMEWORKS ─────────────────────────────── */
+#frameworks { background: rgba(255,255,255,0.015); }
+.fw-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+.fw-item {
+  padding: 1.4rem 1.2rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  text-align: center;
+  transition: all 0.25s;
+  cursor: default;
+}
+.fw-item:hover {
+  border-color: var(--teal);
+  background: rgba(14,138,138,0.06);
+  transform: translateY(-3px);
+}
+.fw-icon { font-size: 1.6rem; margin-bottom: 0.7rem; }
+.fw-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+}
+.fw-type {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--mid);
+  margin-top: 4px;
+  letter-spacing: 0.06em;
+}
+
+/* ─── GRC KNOWLEDGE SECTIONS ─────────────────── */
+#knowledge {}
+.knowledge-accordion { display: flex; flex-direction: column; gap: 1px; }
+.acc-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  transition: border-color 0.2s;
+  margin-bottom: 0.5rem;
+}
+.acc-item.open { border-color: rgba(14,138,138,0.3); }
+.acc-header {
+  padding: 1.2rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.acc-header:hover { background: rgba(14,138,138,0.04); }
+.acc-title-group { display: flex; align-items: center; gap: 14px; }
+.acc-icon { font-size: 1.2rem; }
+.acc-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.acc-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--mid);
+  margin-left: auto;
+  margin-right: 1rem;
+  letter-spacing: 0.06em;
+}
+.acc-chevron {
+  color: var(--teal);
+  font-size: 0.8rem;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.acc-item.open .acc-chevron { transform: rotate(180deg); }
+.acc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.acc-item.open .acc-body { max-height: 800px; }
+.acc-content {
+  padding: 0 1.6rem 1.6rem;
+}
+.acc-content p {
+  color: rgba(250,252,254,0.7);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.acc-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 1rem;
+}
+.pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 5px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+}
+.pill.teal  { background: rgba(14,138,138,0.12); border:1px solid rgba(14,138,138,0.25); color:var(--teal); }
+.pill.gold  { background: rgba(201,150,58,0.12); border:1px solid rgba(201,150,58,0.25); color:var(--gold); }
+.pill.white { background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); color:rgba(250,252,254,0.7); }
+
+/* ─── CASE STUDIES ───────────────────────────── */
+#cases { background: rgba(255,255,255,0.015); }
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.case-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 2rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.case-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.case-card:hover {
+  border-color: rgba(14,138,138,0.3);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.case-card:hover::after { opacity: 1; }
+.case-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.case-tag::before { content: ''; width:20px; height:1px; background:var(--gold); }
+.case-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.02em;
+}
+.case-body {
+  font-size: 0.88rem;
+  color: rgba(250,252,254,0.65);
+  line-height: 1.75;
+  margin-bottom: 1.4rem;
+}
+.case-lesson {
+  padding: 1rem 1.2rem;
+  background: rgba(14,138,138,0.06);
+  border-left: 2px solid var(--teal);
+  font-size: 0.84rem;
+  color: rgba(250,252,254,0.75);
+  line-height: 1.65;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.case-lesson strong { color: var(--teal); }
+
+/* ─── CONTACT ────────────────────────────────── */
+#contact {}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.contact-left h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+.contact-left p {
+  color: rgba(250,252,254,0.65);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.contact-links { display: flex; flex-direction: column; gap: 1rem; }
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 1.2rem 1.4rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  transition: all 0.25s;
+}
+.contact-link:hover {
+  border-color: var(--teal);
+  background: rgba(14,138,138,0.05);
+  transform: translateX(6px);
+}
+.contact-link-icon { font-size: 1.3rem; }
+.contact-link-text { flex: 1; }
+.contact-link-text label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--mid);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 2px;
+}
+.contact-link-text span {
+  font-size: 0.9rem;
+  color: var(--white);
+}
+.contact-link-arrow { color: var(--teal); font-size: 0.9rem; }
+
+.contact-right {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2.4rem;
+}
+.contact-right h4 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.4rem;
+}
+.form-group { margin-bottom: 1.2rem; }
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--mid);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 8px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 11px 14px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+  outline: none;
+  resize: vertical;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(14,138,138,0.1);
+}
+.form-group textarea { min-height: 100px; }
+.form-group select option { background: var(--navy); }
+.btn-submit {
+  width: 100%;
+  padding: 13px;
+  background: var(--teal);
+  color: var(--deep);
+  border: none;
+  border-radius: var(--r-sm);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  letter-spacing: 0.02em;
+}
+.btn-submit:hover {
+  background: #0FAAAA;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(14,138,138,0.3);
+}
+
+/* ─── FOOTER ─────────────────────────────────── */
+footer {
+  border-top: 1px solid rgba(14,138,138,0.15);
+  padding: 2.5rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--mid);
+  letter-spacing: 0.04em;
+}
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--teal); }
+
+/* ─── SCROLL REVEAL ──────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ─── RESPONSIVE ─────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-content, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .expertise-grid { grid-template-columns: 1fr 1fr; }
+  .cases-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  h1 { font-size: 2.4rem; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .expertise-grid { grid-template-columns: 1fr; }
+  .fw-grid { grid-template-columns: repeat(3, 1fr); }
+  section { padding: 70px 5%; }
+}
+</style>
 </head>
 <body>
-    <h1>Welcome to My Portfolio</h1>
-    <p>This website showcases my expertise in ISO 27001.</p>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">NJ<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">about</a></li>
+    <li><a href="#expertise">expertise</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#knowledge">grc knowledge</a></li>
+    <li><a href="#cases">case studies</a></li>
+  </ul>
+  <a href="mailto:naveenjeeva99@gmail.com" class="nav-cta">hire me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-label">GRC Analyst &amp; Security Professional</div>
+      <h1>
+        Naveen<br>
+        <span class="accent">Jeevanantham</span>
+        <span class="name-sub">ISO 27001 Lead Implementer · Cloud &amp; SaaS Security</span>
+      </h1>
+      <p class="hero-desc">
+        Bridging governance, risk, and compliance into practical, scalable security programs. Hands-on experience in ISO 27001:2022 ISMS implementation across regulated healthcare SaaS environments.
+      </p>
+      <div class="hero-btns">
+        <a href="mailto:naveenjeeva99@gmail.com" class="btn-primary">Get in Touch</a>
+        <a href="https://linkedin.com/in/naveenjeevanantham" target="_blank" class="btn-secondary">→ LinkedIn</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card reveal">
+          <div class="stat-num">27001</div>
+          <div class="stat-label">ISO Lead Implementer</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-1">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Frameworks Mastered</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-2">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Audit Finding Closure</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-3">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Global Regulations</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right reveal reveal-delay-1">
+      <div class="hero-terminal">
+        <div class="terminal-header">
+          <div class="t-dot red"></div>
+          <div class="t-dot amber"></div>
+          <div class="t-dot green"></div>
+          <span class="t-title">grc-profile.json</span>
+        </div>
+        <div class="terminal-body">
+          <div class="t-line">
+            <span class="t-prompt">$</span>
+            <span class="t-cmd">cat <span class="t-val">naveen.json</span></span>
+          </div>
+          <div class="t-section">
+            <div class="t-line"><span class="t-key">"name"</span><span class="t-cmd">: </span><span class="t-string">"Naveen Jeevanantham"</span><span class="t-cmd">,</span></div>
+            <div class="t-line"><span class="t-key">"role"</span><span class="t-cmd">: </span><span class="t-string">"GRC Analyst"</span><span class="t-cmd">,</span></div>
+            <div class="t-line"><span class="t-key">"location"</span><span class="t-cmd">: </span><span class="t-string">"Coimbatore, India"</span><span class="t-cmd">,</span></div>
+            <div class="t-line"><span class="t-key">"certifications"</span><span class="t-cmd">: [</span></div>
+            <div class="t-line" style="padding-left:1rem"><span class="t-string">"ISO 27001 Lead Implementer"</span><span class="t-cmd">,</span></div>
+            <div class="t-line" style="padding-left:1rem"><span class="t-string">"Mastercard Cyber Simulation"</span><span class="t-cmd">,</span></div>
+            <div class="t-line" style="padding-left:1rem"><span class="t-string">"Deloitte Cyber Simulation"</span></div>
+            <div class="t-line"><span class="t-cmd">],</span></div>
+            <div class="t-line"><span class="t-key">"frameworks"</span><span class="t-cmd">: [</span></div>
+            <div class="t-line" style="padding-left:1rem"><span class="t-string">"ISO 27001"</span><span class="t-cmd">, </span><span class="t-string">"HIPAA"</span><span class="t-cmd">, </span><span class="t-string">"GDPR"</span><span class="t-cmd">,</span></div>
+            <div class="t-line" style="padding-left:1rem"><span class="t-string">"DPDPA"</span><span class="t-cmd">, </span><span class="t-string">"PDPA"</span><span class="t-cmd">, </span><span class="t-string">"SOC 2"</span></div>
+            <div class="t-line"><span class="t-cmd">],</span></div>
+            <div class="t-line"><span class="t-key">"status"</span><span class="t-cmd">: </span><span class="t-val">"open_to_opportunities"</span></div>
+          </div>
+          <div class="t-line" style="margin-top:1rem">
+            <span class="t-prompt">$</span>
+            <span class="t-cursor"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">about me</div>
+    <h2>Governance-First.<br><span>Security Always.</span></h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I am a GRC and Information Security professional with hands-on experience leading <strong>ISO/IEC 27001:2022 ISMS implementations</strong> in regulated healthcare SaaS environments. I specialise in enterprise risk management, audit coordination, and regulatory compliance across global frameworks including HIPAA, GDPR, DPDPA, and PDPA.</p>
+        <p>My work focuses on translating security and compliance requirements into <strong>practical, scalable controls</strong> that integrate seamlessly into engineering and product workflows. I collaborate closely with cloud, DevOps, and engineering teams to embed security-by-design into the SDLC and strengthen control maturity across AWS environments.</p>
+        <p>I have led end-to-end ISMS implementations, coordinated internal and external certification audits, developed Statements of Applicability, risk assessment methodologies, and security policies — achieving <strong>100% closure of audit findings</strong>.</p>
+        <div class="about-highlight">
+          <p>"GRC is not about bureaucracy — it is about enabling organizations to operate confidently, ethically, and sustainably in a complex and uncertain world."</p>
+        </div>
+      </div>
+      <div class="about-right reveal reveal-delay-1">
+        <div class="info-row">
+          <span class="info-icon">📧</span>
+          <div class="info-content">
+            <label>EMAIL</label>
+            <a href="mailto:naveenjeeva99@gmail.com">naveenjeeva99@gmail.com</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">📱</span>
+          <div class="info-content">
+            <label>PHONE</label>
+            <span>7339194664</span>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">💼</span>
+          <div class="info-content">
+            <label>LINKEDIN</label>
+            <a href="https://linkedin.com/in/naveenjeevanantham" target="_blank">linkedin.com/in/naveenjeevanantham</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">📍</span>
+          <div class="info-content">
+            <label>LOCATION</label>
+            <span>Coimbatore, Tamil Nadu, India</span>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">🎓</span>
+          <div class="info-content">
+            <label>EDUCATION</label>
+            <span>B.Tech IT — Sethu Institute of Technology</span>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">🏢</span>
+          <div class="info-content">
+            <label>CURRENT ROLE</label>
+            <span>Cyber Security Engineer — LYFnGO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="section-inner">
+    <div class="section-label">core expertise</div>
+    <h2>What I <span>Specialise In</span></h2>
+    <p class="section-sub">Six domains where governance, risk, and compliance converge into practical security outcomes.</p>
+    <div class="expertise-grid">
+      <div class="expertise-card reveal">
+        <span class="card-icon">🛡️</span>
+        <div class="card-title">GRC & Information Security</div>
+        <div class="card-desc">End-to-end ISMS design and implementation. Risk registers, control mapping, policy development, and audit coordination across global compliance frameworks.</div>
+        <div class="card-tags">
+          <span class="tag">ISO 27001:2022</span>
+          <span class="tag">ISMS</span>
+          <span class="tag">SoA</span>
+          <span class="tag">Risk Registers</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal reveal-delay-1">
+        <span class="card-icon">⚖️</span>
+        <div class="card-title">Regulatory Compliance</div>
+        <div class="card-desc">Multi-jurisdiction compliance across HIPAA, GDPR, DPDPA, and PDPA. Data protection impact assessments, DPAs, consent frameworks, and privacy controls.</div>
+        <div class="card-tags">
+          <span class="tag">HIPAA</span>
+          <span class="tag">GDPR</span>
+          <span class="tag">DPDPA</span>
+          <span class="tag">PDPA</span>
+          <span class="tag">SOC 2</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal reveal-delay-2">
+        <span class="card-icon">📊</span>
+        <div class="card-title">Enterprise Risk Management</div>
+        <div class="card-desc">Full risk management lifecycle — identification, assessment, treatment planning, and continuous monitoring. Risk appetite definition and residual risk reporting.</div>
+        <div class="card-tags">
+          <span class="tag">Risk Assessment</span>
+          <span class="tag">Risk Matrix</span>
+          <span class="tag">Treatment Plans</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal">
+        <span class="card-icon">☁️</span>
+        <div class="card-title">Cloud Security (AWS)</div>
+        <div class="card-desc">Security-by-design embedded into cloud and DevOps workflows. AWS security baselines, CSPM, IAM least-privilege controls, and S3/network security hardening.</div>
+        <div class="card-tags">
+          <span class="tag">AWS</span>
+          <span class="tag">CSPM</span>
+          <span class="tag">IAM</span>
+          <span class="tag">DevSecOps</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal reveal-delay-1">
+        <span class="card-icon">🔍</span>
+        <div class="card-title">Audit & Assurance</div>
+        <div class="card-desc">Internal and external audit coordination with proven 100% finding closure. Evidence collection, gap analysis, audit response management, and continuous improvement.</div>
+        <div class="card-tags">
+          <span class="tag">Internal Audit</span>
+          <span class="tag">ISO 27001 Audit</span>
+          <span class="tag">Gap Analysis</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal reveal-delay-2">
+        <span class="card-icon">🚨</span>
+        <div class="card-title">Incident Response</div>
+        <div class="card-desc">Cybersecurity incident detection, containment, investigation, and recovery. Incident response playbooks, post-incident root cause analysis, and control improvement.</div>
+        <div class="card-tags">
+          <span class="tag">Detection</span>
+          <span class="tag">Containment</span>
+          <span class="tag">Forensics</span>
+          <span class="tag">Recovery</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">professional journey</div>
+    <h2>Work <span>Experience</span></h2>
+    <p class="section-sub">Hands-on GRC and security engineering in a regulated healthcare SaaS environment.</p>
+    <div class="exp-timeline">
+      <div class="exp-item reveal">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Cyber Security Engineer</div>
+            <div class="exp-company">LYFnGO · Full-time</div>
+          </div>
+          <div class="exp-period">Sep 2025 – Present · Coimbatore</div>
+        </div>
+        <ul class="exp-highlights">
+          <li>Leading <strong>ISO/IEC 27001:2022 ISMS implementation</strong> in a regulated healthcare SaaS environment, covering all 93 controls across 4 domains.</li>
+          <li>Coordinating internal and external <strong>certification audits</strong> achieving 100% finding closure rate.</li>
+          <li>Developed the <strong>Statement of Applicability (SoA)</strong>, risk assessment methodology, risk treatment plans, and comprehensive security policy suite.</li>
+          <li>Ensuring multi-jurisdiction compliance across <strong>HIPAA, GDPR, DPDPA, and PDPA</strong> for healthcare SaaS product.</li>
+          <li>Collaborating with cloud, DevOps, and engineering teams to embed <strong>security-by-design</strong> into the SDLC.</li>
+          <li>Strengthening control maturity across <strong>AWS cloud environments</strong> — IAM, S3 policies, network security groups, and CSPM.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-label">credentials</div>
+    <h2>Certifications &amp; <span>Simulations</span></h2>
+    <p class="section-sub">Industry-recognized credentials and job simulations from global organizations.</p>
+    <div class="cert-grid">
+      <div class="cert-card reveal">
+        <div class="cert-badge">🏅</div>
+        <div>
+          <div class="cert-name">ISO/IEC 27001 Lead Implementer</div>
+          <div class="cert-issuer">INDUSTRY CERTIFICATION</div>
+        </div>
+      </div>
+      <div class="cert-card reveal reveal-delay-1">
+        <div class="cert-badge">🟠</div>
+        <div>
+          <div class="cert-name">Cybersecurity Job Simulation</div>
+          <div class="cert-issuer">MASTERCARD · FORAGE</div>
+        </div>
+      </div>
+      <div class="cert-card reveal reveal-delay-2">
+        <div class="cert-badge">🔷</div>
+        <div>
+          <div class="cert-name">Cybersecurity Analyst Simulation</div>
+          <div class="cert-issuer">TATA CONSULTANCY SERVICES · FORAGE</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-badge">🛡️</div>
+        <div>
+          <div class="cert-name">Shields Up: Cybersecurity Simulation</div>
+          <div class="cert-issuer">AIG · FORAGE</div>
+        </div>
+      </div>
+      <div class="cert-card reveal reveal-delay-1">
+        <div class="cert-badge">🟢</div>
+        <div>
+          <div class="cert-name">Cyber Job Simulation</div>
+          <div class="cert-issuer">DELOITTE AUSTRALIA · FORAGE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRAMEWORKS -->
+<section id="frameworks">
+  <div class="section-inner">
+    <div class="section-label">frameworks &amp; standards</div>
+    <h2>Regulatory &amp; <span>Security Frameworks</span></h2>
+    <p class="section-sub">Standards and regulations I work with daily in GRC and information security roles.</p>
+    <div class="fw-grid">
+      <div class="fw-item reveal"><div class="fw-icon">📋</div><div class="fw-name">ISO 27001</div><div class="fw-type">ISMS Standard</div></div>
+      <div class="fw-item reveal reveal-delay-1"><div class="fw-icon">🏥</div><div class="fw-name">HIPAA</div><div class="fw-type">Healthcare</div></div>
+      <div class="fw-item reveal reveal-delay-2"><div class="fw-icon">🇪🇺</div><div class="fw-name">GDPR</div><div class="fw-type">Data Privacy</div></div>
+      <div class="fw-item reveal"><div class="fw-icon">🇮🇳</div><div class="fw-name">DPDPA</div><div class="fw-type">India Privacy</div></div>
+      <div class="fw-item reveal reveal-delay-1"><div class="fw-icon">🌏</div><div class="fw-name">PDPA</div><div class="fw-type">SEA Privacy</div></div>
+      <div class="fw-item reveal reveal-delay-2"><div class="fw-icon">🔐</div><div class="fw-name">SOC 2</div><div class="fw-type">Trust Services</div></div>
+      <div class="fw-item reveal"><div class="fw-icon">🇺🇸</div><div class="fw-name">NIST CSF</div><div class="fw-type">Cyber Framework</div></div>
+      <div class="fw-item reveal reveal-delay-1"><div class="fw-icon">💳</div><div class="fw-name">PCI DSS</div><div class="fw-type">Payments</div></div>
+      <div class="fw-item reveal reveal-delay-2"><div class="fw-icon">📖</div><div class="fw-name">OCEG</div><div class="fw-type">GRC Model</div></div>
+      <div class="fw-item reveal"><div class="fw-icon">🏗️</div><div class="fw-name">CIS Controls</div><div class="fw-type">Best Practices</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GRC KNOWLEDGE -->
+<section id="knowledge">
+  <div class="section-inner">
+    <div class="section-label">grc knowledge base</div>
+    <h2>Deep GRC <span>Knowledge</span></h2>
+    <p class="section-sub">Structured understanding of governance, risk, compliance, and financial crime frameworks built through disciplined study and professional practice.</p>
+    <div class="knowledge-accordion">
+
+      <div class="acc-item reveal" onclick="toggleAcc(this)">
+        <div class="acc-header">
+          <div class="acc-title-group">
+            <span class="acc-icon">🏛️</span>
+            <span class="acc-title">Governance & Principled Performance</span>
+          </div>
+          <span class="acc-subtitle">OCEG · Three Lines · Board Accountability</span>
+          <span class="acc-chevron">▼</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-content">
+            <p>Governance defines how an organization is directed, controlled, and held accountable. At the foundation is the OCEG concept of <strong>Principled Performance</strong> — reliably achieving objectives, addressing uncertainty, and acting with integrity simultaneously. The Board sets strategy and risk appetite; senior management translates it into operational programs; the Three Lines of Defense model distributes accountability across business operations, risk/compliance functions, and internal audit.</p>
+            <div class="acc-pills">
+              <span class="pill teal">OCEG Red Book</span>
+              <span class="pill teal">COAPDRIM</span>
+              <span class="pill teal">Three Lines</span>
+              <span class="pill white">Board Oversight</span>
+              <span class="pill white">Risk Appetite</span>
+              <span class="pill gold">Accountability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item reveal" onclick="toggleAcc(this)">
+        <div class="acc-header">
+          <div class="acc-title-group">
+            <span class="acc-icon">📊</span>
+            <span class="acc-title">Risk Management Lifecycle</span>
+          </div>
+          <span class="acc-subtitle">ISO 31000 · Risk Matrix · Treatment Strategies</span>
+          <span class="acc-chevron">▼</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-content">
+            <p>Risk management follows a structured four-step lifecycle: Identify → Assess → Treat → Monitor. Risk is calculated as Likelihood × Impact, with treatment strategies of Mitigate, Avoid, Transfer, or Accept. Residual risk after controls must fall within the organization's defined risk tolerance. Business continuity planning defines RTO (Recovery Time Objective) and RPO (Recovery Point Objective) to bound acceptable downtime and data loss.</p>
+            <div class="acc-pills">
+              <span class="pill teal">Risk Register</span>
+              <span class="pill teal">Risk Matrix</span>
+              <span class="pill teal">RTO / RPO</span>
+              <span class="pill white">Mitigate</span>
+              <span class="pill white">Transfer</span>
+              <span class="pill white">Accept</span>
+              <span class="pill gold">ISO 31000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item reveal" onclick="toggleAcc(this)">
+        <div class="acc-header">
+          <div class="acc-title-group">
+            <span class="acc-icon">🏦</span>
+            <span class="acc-title">Financial Crime Compliance (FCC)</span>
+          </div>
+          <span class="acc-subtitle">AML · KYC · Sanctions · Fraud</span>
+          <span class="acc-chevron">▼</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-content">
+            <p>Financial Crime Compliance covers AML (money laundering through Placement → Layering → Integration), Counter-Terrorism Financing, sanctions screening against OFAC/UN/EU lists, Anti-Bribery &amp; Corruption (FCPA, UK Bribery Act), and fraud prevention. Core controls include KYC/CDD/EDD, transaction monitoring systems, PEP screening, and Suspicious Activity Reporting (SAR/STR). The ING Bank €775M fine (2018) demonstrates the catastrophic cost of AML compliance failure.</p>
+            <div class="acc-pills">
+              <span class="pill teal">AML</span>
+              <span class="pill teal">KYC/CDD/EDD</span>
+              <span class="pill teal">OFAC Sanctions</span>
+              <span class="pill white">SAR/STR</span>
+              <span class="pill white">PEP Screening</span>
+              <span class="pill gold">FCPA</span>
+              <span class="pill gold">UK Bribery Act</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item reveal" onclick="toggleAcc(this)">
+        <div class="acc-header">
+          <div class="acc-title-group">
+            <span class="acc-icon">🔐</span>
+            <span class="acc-title">Security Controls & Secure Design</span>
+          </div>
+          <span class="acc-subtitle">Preventive · Detective · Corrective · Defense in Depth</span>
+          <span class="acc-chevron">▼</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-content">
+            <p>Security controls are classified by purpose (Preventive / Detective / Corrective) and by nature (Administrative / Technical / Physical). Defense in Depth requires multiple overlapping control layers — no single point of failure. Secure design principles including Least Privilege, Domain Separation, Process Isolation, Minimization, and Information Hiding reduce the attack surface at the architecture level — before tools are even deployed.</p>
+            <div class="acc-pills">
+              <span class="pill teal">Least Privilege</span>
+              <span class="pill teal">Defense in Depth</span>
+              <span class="pill teal">Zero Trust</span>
+              <span class="pill white">MFA</span>
+              <span class="pill white">SIEM</span>
+              <span class="pill white">Encryption</span>
+              <span class="pill gold">Secure SDLC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item reveal" onclick="toggleAcc(this)">
+        <div class="acc-header">
+          <div class="acc-title-group">
+            <span class="acc-icon">🔗</span>
+            <span class="acc-title">Vendor & Third-Party Risk</span>
+          </div>
+          <span class="acc-subtitle">Due Diligence · SLA · DPA · Continuous Monitoring</span>
+          <span class="acc-chevron">▼</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-content">
+            <p>Third-party relationships are one of the most significant and underestimated risk vectors for organizations. The SolarWinds supply chain attack (2020) demonstrated that vendor compromise can be more impactful than direct attacks. Vendor risk management requires a lifecycle approach: tiered due diligence, contractual security obligations (DPA, NDA, right-to-audit, breach notification), continuous monitoring, and defined offboarding procedures.</p>
+            <div class="acc-pills">
+              <span class="pill teal">Due Diligence</span>
+              <span class="pill teal">Risk Tiering</span>
+              <span class="pill teal">DPA</span>
+              <span class="pill white">SLA</span>
+              <span class="pill white">Right to Audit</span>
+              <span class="pill gold">Supply Chain Risk</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="cases">
+  <div class="section-inner">
+    <div class="section-label">real-world analysis</div>
+    <h2>GRC Case <span>Studies</span></h2>
+    <p class="section-sub">Analysing major compliance failures to extract practical lessons for risk and governance professionals.</p>
+    <div class="cases-grid">
+      <div class="case-card reveal">
+        <div class="case-tag">AML · COMPLIANCE FAILURE · 2018</div>
+        <div class="case-title">ING Bank — €775M Fine</div>
+        <div class="case-body">ING Bank failed to prevent its accounts from being used for money laundering by criminal organizations over several years. Failures included inadequate KYC, poorly calibrated transaction monitoring, and a compliance culture subordinate to commercial objectives.</div>
+        <div class="case-lesson"><strong>Lesson:</strong> Compliance functions must be independent, adequately resourced, and genuinely empowered to block business when necessary. A compliance culture that prioritizes revenue over integrity will eventually produce catastrophic regulatory consequences.</div>
+      </div>
+      <div class="case-card reveal reveal-delay-1">
+        <div class="case-tag">GOVERNANCE FAILURE · CULTURE · 2016</div>
+        <div class="case-title">Wells Fargo — $3B in Fines</div>
+        <div class="case-body">Employees opened 3.5 million unauthorized accounts due to an aggressive sales culture with perverse incentives. The Board failed to challenge the culture; internal audit failed to escalate the systemic pattern; whistleblowers were suppressed.</div>
+        <div class="case-lesson"><strong>Lesson:</strong> Governance without ethical culture is ineffective. Incentive structures can overpower compliance rules. Whistleblower protection is essential for any effective compliance program.</div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-tag">SUPPLY CHAIN · CYBER · 2020</div>
+        <div class="case-title">SolarWinds — Nation-State Attack</div>
+        <div class="case-body">Attackers injected malicious code into SolarWinds' build pipeline — distributed to 18,000+ organizations including US government agencies. The breach remained undetected for nine months. ISO 27001:2022 added new supply chain controls in direct response.</div>
+        <div class="case-lesson"><strong>Lesson:</strong> Supply chain risk requires the same rigor as direct vendor risk. Software integrity verification (SBOM, code signing) and Zero Trust architecture are essential countermeasures.</div>
+      </div>
+      <div class="case-card reveal reveal-delay-1">
+        <div class="case-tag">GDPR · DATA BREACH · 2020</div>
+        <div class="case-title">British Airways — £20M ICO Fine</div>
+        <div class="case-body">Attackers injected card-skimming code into the BA website, harvesting 400,000 customers' payment data. The breach was not detected by BA's own systems — discovered by a third-party researcher. Fined under GDPR Article 32 for inadequate technical controls.</div>
+        <div class="case-lesson"><strong>Lesson:</strong> GDPR Article 32 requires security appropriate to the risk — not minimum controls. Web application security testing must be conducted regularly. Detection capabilities must extend to public-facing systems.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">get in touch</div>
+    <h2>Open to <span>Opportunities</span></h2>
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <h3>Let's work together on something that matters.</h3>
+        <p>I am actively seeking GRC, information security, risk consulting, or compliance analyst roles where I can apply ISO 27001, risk management, and regulatory compliance expertise in a professional environment.</p>
+        <div class="contact-links">
+          <a href="mailto:naveenjeeva99@gmail.com" class="contact-link">
+            <span class="contact-link-icon">📧</span>
+            <div class="contact-link-text">
+              <label>EMAIL</label>
+              <span>naveenjeeva99@gmail.com</span>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+          <a href="https://linkedin.com/in/naveenjeevanantham" target="_blank" class="contact-link">
+            <span class="contact-link-icon">💼</span>
+            <div class="contact-link-text">
+              <label>LINKEDIN</label>
+              <span>linkedin.com/in/naveenjeevanantham</span>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+          <a href="tel:7339194664" class="contact-link">
+            <span class="contact-link-icon">📱</span>
+            <div class="contact-link-text">
+              <label>PHONE</label>
+              <span>+91 7339194664</span>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-right reveal reveal-delay-1">
+        <h4>Send a Message</h4>
+        <form onsubmit="handleForm(event)">
+          <div class="form-group">
+            <label>YOUR NAME</label>
+            <input type="text" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label>EMAIL ADDRESS</label>
+            <input type="email" placeholder="john@company.com" required>
+          </div>
+          <div class="form-group">
+            <label>REGARDING</label>
+            <select>
+              <option>GRC Analyst Role</option>
+              <option>ISO 27001 Consulting</option>
+              <option>Risk Management</option>
+              <option>Compliance Advisory</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>MESSAGE</label>
+            <textarea placeholder="Tell me about the opportunity..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2025 Naveen Jeevanantham · GRC Analyst · ISO 27001 Lead Implementer</div>
+  <div class="footer-links">
+    <a href="mailto:naveenjeeva99@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/naveenjeevanantham" target="_blank">LinkedIn</a>
+    <a href="#hero">Back to Top ↑</a>
+  </div>
+</footer>
+
+<script>
+// ─── CURSOR ───────────────────────────────────
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+(function animate() {
+  rx += (mx-rx)*0.12; ry += (my-ry)*0.12;
+  cur.style.transform  = `translate(${mx-6}px,${my-6}px)`;
+  ring.style.transform = `translate(${rx-18}px,${ry-18}px)`;
+  requestAnimationFrame(animate);
+})();
+document.querySelectorAll('a,button,.expertise-card,.stat-card,.cert-card,.fw-item').forEach(el => {
+  el.addEventListener('mouseenter', () => { ring.style.transform += ' scale(1.6)'; ring.style.borderColor='rgba(14,138,138,0.8)'; });
+  el.addEventListener('mouseleave', () => { ring.style.borderColor='rgba(14,138,138,0.5)'; });
+});
+
+// ─── SCROLL REVEAL ────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ─── ACCORDION ────────────────────────────────
+function toggleAcc(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.acc-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ─── FORM ─────────────────────────────────────
+function handleForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.btn-submit');
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = '#1E8449';
+  setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background=''; e.target.reset(); }, 3000);
+}
+
+// ─── NAV ACTIVE STATE ─────────────────────────
+const sections = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop-120) current=s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href')==='#'+current ? 'var(--teal)' : '';
+  });
+});
+</script>
 </body>
 </html>
